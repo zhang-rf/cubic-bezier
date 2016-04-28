@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubic-Bezier</title>
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="stylesheet" href="assets/css/cubic-bezier.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header>Cubic-Bezier</header>
+
+<div class="main">
+    <div id="canvas-container" data-unsupported="您的浏览器不支持Canvas"></div>
+
+    <div>
+        <input id="x1" value="0.00" title="x1">
+        <input id="y1" value="0.00" title="y1">
+        <input id="x2" value="1.00" title="x2">
+        <input id="y2" value="1.00" title="y2">
+        <input id="duration" value="3s" title="时长">
+    </div>
+
+    <div>
+        <button id="preview">预览</button>
+        <button id="code">生成代码</button>
+    </div>
+
+    <div id="code-box">
+        <pre></pre>
+    </div>
+</div>
+
+<div id="preview-bar"></div>
+
+<script src="assets/js/cubic-bezier.js"></script>
+<script src="assets/js/jquery-2.2.3.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+    window.onload = function () {
+        if (!CubicBezier.supports()) {
+            document.write(document.getElementById('canvas-container').getAttribute('data-unsupported'));
+            document.body.style.textAlign = 'center';
+        }
+    };
+</script>
+</body>
+</html>

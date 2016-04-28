@@ -1,0 +1,116 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: 2.4rem;
+    color: #ecf0f1;
+    background: #3498db;
+}
+
+* {
+    font-family: inherit;
+}
+
+header {
+    margin: 1em;
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
+.main > div {
+    margin-bottom: 1em;
+}
+
+#canvas-container {
+    margin-bottom: 3em;
+}
+
+#canvas-container canvas {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1) !important;
+}
+
+.cb-container .cb-point {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2) !important;
+}
+
+input {
+    width: 100px;
+    text-align: center;
+    font-size: inherit;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: thick solid rgba(255, 255, 255, 0.4);
+    border-radius: 1px;
+    outline: none;
+}
+
+@keyframes input-error-shake {
+    20%, 60% {
+        transform: translateX(-0.5em);
+    }
+    40%, 80% {
+        transform: translateX(0.5em);
+    }
+}
+
+input.error {
+    color: #e74c3c;
+    -webkit-animation: shake 0.5s;
+    animation: input-error-shake 0.5s;
+}
+
+button {
+    margin: 0;
+    min-width: 250px;
+    font-size: inherit;
+    line-height: 1.6;
+    color: white;
+    background: #27ae60;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    outline: none;
+    transition: all 300ms ease-out;
+}
+
+button:hover {
+    letter-spacing: 1px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 1em 1em rgba(0, 0, 0, 0.1) inset;
+}
+
+#preview-bar {
+    position: fixed;
+    bottom: 0;
+    width: 0;
+    height: 10px;
+    background: #d35400;
+}
+
+#code-box {
+    display: none;
+    margin: 0;
+    text-align: center;
+    border-top: thin dashed rgba(255, 255, 255, 0.8);
+}
+
+#code-box pre {
+    display: inline-block;
+    margin: 0;
+    padding: 1em;
+    text-align: left;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 1.4rem;
+    white-space: pre-wrap;
+}

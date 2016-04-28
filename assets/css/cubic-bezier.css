@@ -1,0 +1,24 @@
+.cb-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.cb-container::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.cb-container canvas {
+    vertical-align: middle;
+    background: white url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC1JREFUeNpi/P//vzEDHsDIyIhPmoGJgUIwasBgMICFUDwD08loIA5/AwACDAD0kgZV4WViNAAAAABJRU5ErkJggg==");
+}
+
+.cb-container .cb-point {
+    position: absolute;
+    background: white;
+    border-radius: 1000px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .6);
+}
