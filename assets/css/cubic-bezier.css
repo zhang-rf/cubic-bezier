@@ -18,6 +18,7 @@
 
 .cb-container .cb-point {
     position: absolute;
+    display: none;
     background: white;
     border-radius: 1000px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .6);

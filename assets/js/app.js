@@ -59,8 +59,8 @@
             return value;
         }
 
-        var cubicBezier = new CubicBezier(500, 500);
-        $(cubicBezier.element()).appendTo(queryCanvasContainer).data('object', cubicBezier) // 绑定到元素中以避免内存泄露
+        var $cubicBezier = $(queryCanvasContainer).children();
+        $cubicBezier.data('object', new CubicBezier($cubicBezier.get(0))) // 绑定到元素中以避免内存泄露
             .on('mouseenter', function () {
                 $(this).data('object').controls(true);
             })

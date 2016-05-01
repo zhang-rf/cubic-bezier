@@ -103,13 +103,15 @@
 
     /**
      * CubicBezier构造函数
-     * @param width
-     * @param height
+     * @param element
      * @constructor
      */
-    function CubicBezier(width, height) {
+    function CubicBezier(element) {
 
-        var container, canvas, context, point1, point2;
+        var container = element,
+            canvas = container.firstElementChild, context = canvas.getContext('2d'),
+            point1 = container.children[1], point2 = container.children[2];
+        var width = parseInt(canvas.getAttribute('width')), height = parseInt(canvas.getAttribute('height'));
         var x1 = 0, y1 = height, x2 = width, y2 = 0;
         var style = Object.create(CubicBezier.defaultStyle);
         var controlsAttached = false, isAdjusting = false;
@@ -162,35 +164,18 @@
 
         // 立即执行函数防止变量污染
         (function () {
-            container = document.createElement('div');
-            container.className = classContainer;
             container.style.width = width + ((width + height) / 2 * 0.05) + 'px';
             container.style.height = height + ((width + height) / 2 * 0.05) + 'px';
 
-            canvas = document.createElement('canvas');
-            context = canvas.getContext('2d');
-            canvas.width = width;
-            canvas.height = height;
-
-            point1 = document.createElement('span');
-            point1.className = classPoint;
             point1.style.width = (width + height) / 2 * 0.05 + 'px';
             point1.style.height = (width + height) / 2 * 0.05 + 'px';
             point1.style.left = 0;
             point1.style.top = height + 'px';
-            point1.style.display = 'none';
 
-            point2 = document.createElement('span');
-            point2.className = classPoint;
             point2.style.width = (width + height) / 2 * 0.05 + 'px';
             point2.style.height = (width + height) / 2 * 0.05 + 'px';
             point2.style.left = width + 'px';
             point2.style.top = 0;
-            point2.style.display = 'none';
-
-            container.appendChild(canvas);
-            container.appendChild(point1);
-            container.appendChild(point2);
 
             CubicBezier.stroke(context, width, height, x1, y1, x2, y2, controlsAttached, style);
         }());
@@ -304,10 +289,10 @@
 
             controlsAttached = !controlsAttached;
             if (controlsAttached) {
-                point1.style.display = '';
+                point1.style.display = 'inline-block';
                 point1.addEventListener('mousedown', point_mousedown);
 
-                point2.style.display = '';
+                point2.style.display = 'inline-block';
                 point2.addEventListener('mousedown', point_mousedown);
 
                 document.addEventListener('mouseup', document_mouseup);
